@@ -6,4 +6,4 @@ Aplicação desenvolvida pensando nas empresas e desenvolvedores. Tornando poss�
 
 #### Esta aplicação foi desenvolvida na semana OmniStack, curso ministrado pela [RocketSeat](https://rocketseat.com.br/).
 
-![wallpaper](https://user-images.githubusercontent.com/38081852/65915297-8a40ee00-e3a9-11e9-8da6-f2e18b6c7b70.png)
+![Wallpaper OmniStack - 1440x900](https://user-images.githubusercontent.com/38081852/65943205-51366700-e405-11e9-9886-b11300b2811c.png)
