@@ -1,7 +1,10 @@
 import axios from 'axios'
 
+// set your emulator IP on Genymotion and change 'localhost'
+const EMULATOR_IP = 'localhost'
+
 const api = axios.create({
-  baseURL: 'http://192.168.2.19:3333',
+  baseURL: `http://${EMULATOR_IP}:3333`,
 })
 
 export default api
