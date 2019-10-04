@@ -16,13 +16,24 @@ const app = express()
 const server = http.Server(app)
 const io = socketio(server)
 
-io.on('connection', socket => {
-  console.log('User', socket.id)
-})
-
 mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASSWD}@cluster0-si0th.mongodb.net/semana09?retryWrites=true&w=majority`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+})
+
+// save on redis server on production
+const connectedUsers = {}
+
+io.on('connection', socket => {
+  const { user_id } = socket.handshake.query 
+  connectedUsers[user_id] = socket.id
+})
+
+app.use((req, res, next) => {
+  req.io = io 
+  req.connectedUsers = connectedUsers
+
+  return next()
 })
 
 app.use(cors())
