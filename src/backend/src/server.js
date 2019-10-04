@@ -13,7 +13,7 @@ const DB_USER = 'xonado'
 const DB_PASSWD = '12345'
 
 const app = express()
-const server = http.server(app)
+const server = http.Server(app)
 const io = socketio(server)
 
 io.on('connection', socket => {
