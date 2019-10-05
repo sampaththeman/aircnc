@@ -9,8 +9,8 @@ const http = require('http')
 const routes = require('./routes')
 
 const PORT_LISTENING = 3333
-const DB_USER = 'xonado'
-const DB_PASSWD = '12345'
+const DB_USER = 'user'
+const DB_PASSWD = 'passwd'
 
 const app = express()
 const server = http.Server(app)
