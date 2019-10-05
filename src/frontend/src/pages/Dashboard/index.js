@@ -5,12 +5,14 @@ import api from '../../services/api'
 
 import './styles.css'
 
+import connectionUrl from '../../services/connectionUrl'
+
 export default function Dashboard() {
   const [spots, setSpots] = useState([])
   const [requests, setRequests] = useState([])
 
   const user_id = localStorage.getItem('user')
-  const socket = useMemo(() => socketio('http://localhost:3333', {
+  const socket = useMemo(() => socketio(`${connectionUrl}`, {
     query: { user_id },
   }), [user_id])
 
