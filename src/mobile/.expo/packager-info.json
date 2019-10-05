@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 13875,
-  "expoServerNgrokUrl": "https://zg-e93.anonymous.mobile.exp.direct",
-  "packagerNgrokUrl": "https://packager.zg-e93.anonymous.mobile.exp.direct",
-  "ngrokPid": 13906
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }
