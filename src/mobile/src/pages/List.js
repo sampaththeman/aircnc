@@ -17,12 +17,14 @@ import logo from '../assets/logo.png'
 
 import connectionUrl from '../services/connectionUrl'
 
+import serverConfig from '../config/serverConfig'
+
 export default function List() {
   const [techs, setTechs] = useState([])
 
   useEffect(() => {
     AsyncStorage.getItem('user').then(user_id => {
-      const socket = socketio(`${connectionUrl}`, {
+      const socket = socketio(serverConfig.URL, {
         query: { user_id }
       })
 

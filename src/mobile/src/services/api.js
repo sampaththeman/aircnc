@@ -1,9 +1,7 @@
-import axios from 'axios'
+import axios from 'axios';
 
-import connectionUrl from '../services/connectionUrl'
+import serverConfig from '../config/serverConfig'
 
-const api = axios.create({
-  baseURL: `${connectionUrl}`,
+export default axios.create({
+  baseURL: serverConfig.URL
 })
-
-export default api
