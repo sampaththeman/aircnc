@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+
 import { 
   View, 
   KeyboardAvoidingView, 
@@ -28,10 +29,16 @@ export default function Login({ navigation }) {
     })
   }, [])
 
-  async function handleSubmit() {
-    const response = await api.post('/sessions', {
-      email
+  useEffect(() => {
+    AsyncStorage.getItem('techs').then(techs => {
+      if (techs) {
+        setTechs(techs)
+      }
     })
+  }, [])
+
+  async function handleSubmit() {
+    const response = await api.post('/sessions', { email })
 
     const { _id } = response.data
 
