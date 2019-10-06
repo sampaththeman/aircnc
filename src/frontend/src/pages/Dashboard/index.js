@@ -1,18 +1,19 @@
 import React, { useEffect, useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
-import socketio from 'socket.io-client'
-import api from '../../services/api'
-
 import './styles.css'
 
-import connectionUrl from '../../services/connectionUrl'
+import socketio from 'socket.io-client'
+import api from '../../services/api'
+import serverConfig from '../../config/serverConfig'
+
+
 
 export default function Dashboard() {
   const [spots, setSpots] = useState([])
   const [requests, setRequests] = useState([])
 
   const user_id = localStorage.getItem('user')
-  const socket = useMemo(() => socketio(`${connectionUrl}`, {
+  const socket = useMemo(() => socketio(serverConfig.URL, {
     query: { user_id },
   }), [user_id])
 
