@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const connectionUrl = require('../services/connectionUrl')
+const serverConfig = require('../config/serverConfig')
 
 const SpotSchema = new mongoose.Schema({
   thumbnail: String,
@@ -18,7 +18,7 @@ const SpotSchema = new mongoose.Schema({
 })
 
 SpotSchema.virtual('thumbnail_url').get(function() {
-  return `${connectionUrl}/files/${this.thumbnail}`
+  return `${serverConfig.URL}/files/${this.thumbnail}`
 })
 
 module.exports = mongoose.model('Spot', SpotSchema)
