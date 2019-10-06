@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
 
 import socketio from 'socket.io-client'
+import serverConfig from '../config/serverConfig'
 
 import { 
   SafeAreaView,
   Image,
   StyleSheet,
   AsyncStorage,
+  TouchableOpacity,
   ScrollView,
   Alert 
 } from 'react-native'
@@ -15,11 +17,7 @@ import SpotList from '../components/SpotList'
 
 import logo from '../assets/logo.png'
 
-import connectionUrl from '../services/connectionUrl'
-
-import serverConfig from '../config/serverConfig'
-
-export default function List() {
+export default function List({ navigation }) {
   const [techs, setTechs] = useState([])
 
   useEffect(() => {
@@ -41,9 +39,16 @@ export default function List() {
     })
   }, [])
 
+  function handleLogout() {
+    AsyncStorage.setItem('user', '').then(() => { navigation.navigate('Login')})
+  }
+
   return (
     <SafeAreaView style={StyleSheet.container}>
-      <Image style={styles.logo} source={logo}/>
+      <TouchableOpacity onPress={handleLogout}>
+        <Image style={styles.logo} source={logo}/>
+      </TouchableOpacity>
+
       <ScrollView>
         {techs.map(tech => <SpotList key={tech} tech={tech} />)}
       </ScrollView>
