@@ -1,3 +1,6 @@
+# uploads
+./src/backend/uploads/
+
 tomcat/
 target/
 bin/
