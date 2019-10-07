@@ -22,19 +22,23 @@ export default function Login({ navigation }) {
   const [techs, setTechs] = useState('')
 
   useEffect(() => {
-    AsyncStorage.getItem('user').then(user => {
-      if (user) {
-        navigation.navigate('List')
-      }
-    })
+    AsyncStorage
+      .getItem('user')
+      .then(user => {
+        if (user) {
+          navigation.navigate('List')
+        }
+      })
   }, [])
 
   useEffect(() => {
-    AsyncStorage.getItem('techs').then(techs => {
-      if (techs) {
-        setTechs(techs)
-      }
-    })
+    AsyncStorage
+      .getItem('techs')
+      .then(techs => {
+        if (techs) {
+          setTechs(techs)
+        }
+      })
   }, [])
 
   async function handleSubmit() {
@@ -53,7 +57,10 @@ export default function Login({ navigation }) {
       <Image source={logo} />
 
       <View style={styles.form}>
-        <Text style={styles.label}>SEU E-MAIL *</Text>
+        <Text style={styles.label}>
+          SEU E-MAIL *
+        </Text>
+        
         <TextInput
           style={styles.input}
           placeholder="Seu e-mail"
@@ -65,7 +72,10 @@ export default function Login({ navigation }) {
           onChangeText={setEmail}
         />
 
-      <Text style={styles.label}>TECNOLOGIAS *</Text>
+        <Text style={styles.label}>
+          TECNOLOGIAS *
+        </Text>
+
         <TextInput
           style={styles.input}
           placeholder="Tecnologias de Interesse"
@@ -76,9 +86,9 @@ export default function Login({ navigation }) {
           onChangeText={setTechs}
         />
 
-      <TouchableOpacity onPress={handleSubmit} style={styles.button}>
-        <Text style={styles.buttonText}>Encontrar spots</Text>
-      </TouchableOpacity>
+        <TouchableOpacity onPress={handleSubmit} style={styles.button}>
+          <Text style={styles.buttonText}>Encontrar spots</Text>
+        </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
   )
