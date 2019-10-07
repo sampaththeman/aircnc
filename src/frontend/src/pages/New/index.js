@@ -39,7 +39,10 @@ export default function New({ history }) {
         style={{ backgroundImage: `url(${preview})` }}
         className={thumbnail ? 'has-thumbnail' : ''}
       >
-        <input type="file" onChange={event => setThumbnail(event.target.files[0])} />
+        <input 
+          type="file" 
+          onChange={event => setThumbnail(event.target.files[0])} 
+        />
         <img src={camera} alt="Select img" />
       </label>
 
@@ -51,7 +54,10 @@ export default function New({ history }) {
         onChange={event => setCompany(event.target.value)}
       />
 
-      <label htmlFor="techs">TECNOLOGIAS * <span>(separadas por vírgula)</span></label>
+      <label htmlFor="techs">
+        TECNOLOGIAS * <span>(separadas por vírgula)</span>
+      </label>
+      
       <input 
         id="techs"
         placeholder="Quais tecnologias usam?"
@@ -59,7 +65,9 @@ export default function New({ history }) {
         onChange={event => setTechs(event.target.value)}
       />
 
-      <label htmlFor="price">VALOR DA DIÁRIA * <span>(em branco para GRATUITO)</span></label>
+      <label htmlFor="price">
+        VALOR DA DIÁRIA * <span>(em branco para GRATUITO)</span>
+      </label>
       <input 
         id="price"
         placeholder="Valor cobrado por dia"
@@ -67,7 +75,9 @@ export default function New({ history }) {
         onChange={event => setPrice(event.target.value)}
       />
 
-      <button type="submit" className="btn">Cadastrar</button>
+      <button type="submit" className="btn">
+        Cadastrar
+      </button>
 
     </form>
   )
