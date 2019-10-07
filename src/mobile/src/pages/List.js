@@ -27,20 +27,27 @@ export default function List({ navigation }) {
       })
 
       socket.on('booking_response', booking => {
-        Alert.alert(`Sua reserva em ${booking.spot.company} em ${booking.date} foi ${booking.approved ? 'APROVADA' : 'REJEITADA'}`)
+        Alert.alert(
+          `Sua reserva em ${booking.spot.company} em ${booking.date} foi 
+          ${booking.approved ? 'APROVADA' : 'REJEITADA'}`
+        )
       })
     })
   }, [])
 
   useEffect(() => {
     AsyncStorage.getItem('techs').then(storagedTechs => {
-      const techsArray = storagedTechs.split(',').map(tech => tech.trim())
+      const techsArray = storagedTechs
+        .split(',')
+        .map(tech => tech.trim())
       setTechs(techsArray)
     })
   }, [])
 
   function handleLogout() {
-    AsyncStorage.setItem('user', '').then(() => { navigation.navigate('Login')})
+    AsyncStorage
+      .setItem('user', '')
+      .then(() => { navigation.navigate('Login')})
   }
 
   return (
@@ -50,7 +57,9 @@ export default function List({ navigation }) {
       </TouchableOpacity>
 
       <ScrollView>
-        {techs.map(tech => <SpotList key={tech} tech={tech} />)}
+        {
+          techs.map(tech => <SpotList key={tech} tech={tech} />)
+        }
       </ScrollView>
     </SafeAreaView>
   )
