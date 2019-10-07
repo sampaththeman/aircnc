@@ -36,7 +36,9 @@ export default function Book({ navigation }) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.label}>DATA DE INTERESSE *</Text>
+      <Text style={styles.label}>
+        DATA DE INTERESSE *
+      </Text>
       <TextInput
         style={styles.input}
         placeholder="Qual data você quer reservar?"
@@ -48,11 +50,15 @@ export default function Book({ navigation }) {
       />
 
       <TouchableOpacity onPress={handleSubmit} style={styles.button}>
-        <Text style={styles.buttonText}>Solicitar Reserva</Text>
+        <Text style={styles.buttonText}>
+          Solicitar Reserva
+        </Text>
       </TouchableOpacity>
       
       <TouchableOpacity onPress={handleCancel} style={[styles.button, styles.cancelButton]}>
-        <Text style={styles.buttonText}>Cancelar</Text>
+        <Text style={styles.buttonText}>
+          Cancelar
+        </Text>
       </TouchableOpacity>
     </SafeAreaView>
   )
